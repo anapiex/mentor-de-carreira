@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futuro360 - Guia de Carreira para o 3º Ano</title>
+  
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Estilos Customizados -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo">
+        <i class="fa-solid fa-compass"></i>
+        <span>Futuro<strong>360</strong></span>
+      </div>
+      <nav class="nav-links">
+        <button id="nav-quiz" class="nav-btn active">
+          <i class="fa-solid fa-clipboard-question"></i> Teste Vocacional
+        </button>
+        <button id="nav-explore" class="nav-btn">
+          <i class="fa-solid fa-briefcase"></i> Explorar Carreiras
+        </button>
+      </nav>
+      <button id="theme-toggle" class="btn-icon" aria-label="Alternar Tema">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- SEÇÃO HERO & TESTE VOCACIONAL -->
+    <section id="quiz-section" class="section-card">
+      <div class="hero-text">
+        <span class="badge"><i class="fa-solid fa-graduation-cap"></i> Especial 3º Ano do Ensino Médio</span>
+        <h1>Descubra qual carreira combina com o seu perfil</h1>
+        <p>Responda ao teste vocacional interativo e receba sugestões de profissões com base nas suas habilidades e preferências.</p>
+      </div>
+
+      <!-- Barra de Progresso do Quiz -->
+      <div id="quiz-progress-container" class="progress-container hidden">
+        <div class="progress-info">
+          <span id="question-number">Pergunta 1 de 5</span>
+          <span id="progress-percent">20%</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Card de Início / Perguntas -->
+      <div id="quiz-box" class="quiz-box">
+        <div id="start-screen" class="start-screen">
+          <div class="icon-circle">
+            <i class="fa-solid fa-rocket"></i>
+          </div>
+          <h2>Pronto para descobrir o seu caminho?</h2>
+          <p>O teste leva menos de 3 minutos e ajudará a direcionar suas escolhas para a faculdade ou mercado de trabalho.</p>
+          <button id="start-quiz-btn" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-play"></i> Iniciar Teste Vocacional
+          </button>
+        </div>
+
+        <!-- Pergunta Dinâmica (injetada via JS) -->
+        <div id="question-screen" class="question-screen hidden">
+          <h3 id="question-title">Carregando pergunta...</h3>
+          <div id="options-container" class="options-grid">
+            <!-- As opções serão renderizadas dinamicamente pelo JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Card de Resultados (Hidden inicialmente) -->
+      <div id="results-screen" class="results-screen hidden">
+        <div class="results-header">
+          <i class="fa-solid fa-circle-check check-icon"></i>
+          <h2>Seu Perfil foi Analisado com Sucesso!</h2>
+          <p>Com base nas suas respostas, destacamos as carreiras com maior afinidade para você:</p>
+        </div>
+
+        <div id="recommendations-list" class="recommendations-list">
+          <!-- Resultados dinâmicos inseridos pelo JS -->
+        </div>
+
+        <div class="results-actions">
+          <button id="restart-quiz-btn" class="btn btn-secondary">
+            <i class="fa-solid fa-rotate-right"></i> Refazer Teste
+          </button>
+          <button id="explore-more-btn" class="btn btn-primary">
+            <i class="fa-solid fa-magnifying-glass"></i> Ver Todas as Carreiras
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE EXPLORAÇÃO DE CARREIRAS -->
+    <section id="explore-section" class="section-card hidden">
+      <div class="section-header">
+        <h2><i class="fa-solid fa-layer-group"></i> Guia Completo de Profissões</h2>
+        <p>Explore as principais áreas de atuação para quem está saindo do Ensino Médio.</p>
+      </div>
+
+      <!-- Filtros por Área -->
+      <div class="category-filters">
+        <button class="filter-btn active" data-category="all">Todas</button>
+        <button class="filter-btn" data-category="tecnologia"><i class="fa-solid fa-laptop-code"></i> Tecnologia</button>
+        <button class="filter-btn" data-category="saude"><i class="fa-solid fa-heart-pulse"></i> Saúde</button>
+        <button class="filter-btn" data-category="exatas"><i class="fa-solid fa-calculator"></i> Exatas & Engenharia</button>
+        <button class="filter-btn" data-category="humanas"><i class="fa-solid fa-scale-balanced"></i> Humanas & Sociais</button>
+        <button class="filter-btn" data-category="criativo"><i class="fa-solid fa-palette"></i> Artes & Design</button>
+      </div>
+
+      <!-- Grid de Cards de Carreiras -->
+      <div id="careers-grid" class="careers-grid">
+        <!-- Cards inseridos dinamicamente via JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="app-footer">
+    <p>&copy; Futuro360 - Orientador de Carreiras para o Ensino Médio.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
